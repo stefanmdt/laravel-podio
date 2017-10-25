@@ -39,7 +39,10 @@
       "laravel": {
         "providers": [
           "SpotOnLive\\LaravelPodio\\LaraverPodioProvider"
-        ]
+        ],
+        "aliases": {
+          "Podio": "SpotOnLive\\LaravelPodio\\Facade"
+        }
       }
     }
   }

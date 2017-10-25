@@ -1,12 +1,12 @@
 <?php
 
-namespace SpotOnLive\LaravelPodio\Services;
+namespace SpotOnLive\LaravelPodio;
 
 use Podio;
 use SpotOnLive\LaravelPodio\Options\PodioOptions;
 use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
 
-class PodioService
+class LaravelPodio
 {
     /** @var PodioOptions */
     protected $options;

@@ -1,20 +1,11 @@
 <?php
-
-/**
- * Podio integration for Laravel 5.1
- *
- * @license MIT
- * @package SpotOnLive\LaravelPodio
- */
-
 namespace SpotOnLive\LaravelPodio;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Application;
 use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
-use SpotOnLive\LaravelPodio\Services\PodioService;
 
-class LaravelPodioProvider extends ServiceProvider
+class ServiceProvider extends \Illuminate\Support\ServiceProvider
+
 {
     /**
      * Publish config
@@ -52,7 +43,7 @@ class LaravelPodioProvider extends ServiceProvider
     protected function registerServices()
     {
         // PodioService
-        $this->app->bind(PodioService::class, function (Application $app) {
+        $this->app->bind(LaravelPodio::class, function (Application $app) {
             /** @var array $config */
             $config = config('podio');
 
@@ -60,7 +51,7 @@ class LaravelPodioProvider extends ServiceProvider
                 ConfigurationException::message('Please provide a podio configuration');
             }
 
-            return new PodioService($config);
+            return new LaravelPodio($config);
         });
     }
 }

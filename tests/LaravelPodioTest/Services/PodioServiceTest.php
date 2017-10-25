@@ -6,12 +6,12 @@ use PHPUnit\Framework\TestCase;
 use Podio;
 use Mockery;
 use SpotOnLive\LaravelPodio\Options\PodioOptions;
-use SpotOnLive\LaravelPodio\Services\PodioService;
+use SpotOnLive\LaravelPodio\LaravelPodio;
 use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
 
 class PodioServiceTest extends TestCase
 {
-    /** @var PodioService */
+    /** @var LaravelPodio */
     protected $service;
 
     /** @var Podio */
@@ -52,7 +52,7 @@ class PodioServiceTest extends TestCase
             $this->config['options']
         );
 
-        $this->service = new PodioService($this->config);
+        $this->service = new LaravelPodio($this->config);
     }
 
     public function tearDown()
