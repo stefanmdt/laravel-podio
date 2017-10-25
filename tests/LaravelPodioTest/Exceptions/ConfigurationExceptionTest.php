@@ -2,10 +2,10 @@
 
 namespace LaravelPodioTest\Exceptions;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
 
-class ConfigurationExceptionTest extends PHPUnit_Framework_TestCase
+class ConfigurationExceptionTest extends TestCase
 {
     public function testMessage()
     {

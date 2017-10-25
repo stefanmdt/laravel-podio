@@ -2,14 +2,14 @@
 
 namespace LaravelPodioTest\Services;
 
+use PHPUnit\Framework\TestCase;
 use Podio;
 use Mockery;
-use PHPUnit_Framework_TestCase;
 use SpotOnLive\LaravelPodio\Options\PodioOptions;
 use SpotOnLive\LaravelPodio\Services\PodioService;
 use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
 
-class PodioServiceTest extends PHPUnit_Framework_TestCase
+class PodioServiceTest extends TestCase
 {
     /** @var PodioService */
     protected $service;

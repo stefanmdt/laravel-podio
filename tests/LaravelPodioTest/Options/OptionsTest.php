@@ -2,10 +2,10 @@
 
 namespace LaravelPodioTest\Options;
 
+use PHPUnit\Framework\TestCase;
 use SpotOnLive\LaravelPodio\Options\Options;
-use PHPUnit_Framework_TestCase;
 
-class OptionsTest extends PHPUnit_Framework_TestCase
+class OptionsTest extends TestCase
 {
     /** @var Options */
     protected $options;
