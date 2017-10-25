@@ -81,15 +81,11 @@ class LaravelPodio
             ConfigurationException::message('Please provide configuration for your podio application');
         }
 
-        $matchedApp = null;
+        $matchedApp = array_filter($apps, function($item) use ($appName) {
+            return $item['name'] === $appName;
+        });
 
-        foreach ($apps as $app) {
-            if (!isset($app['name']) || $app['name'] != $appName) {
-                continue;
-            }
-
-            $matchedApp = $app;
-        }
+        $matchedApp = reset($matchedApp);
 
         if (!$matchedApp) {
             ConfigurationException::missingApp($appName);
