@@ -43,7 +43,7 @@
         "robjuz\\LaravelPodio\\ServiceProvider"
       ],
       "aliases": {
-        "Podio": "robjuz\\LaravelPodio\\Facade"
+        "LaravelPodio": "robjuz\\LaravelPodio\\Facade"
       }
     }
   }
