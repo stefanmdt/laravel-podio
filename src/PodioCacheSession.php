@@ -10,7 +10,7 @@ namespace robjuz\LaravelPodio;
 
 
 use Illuminate\Support\Facades\Cache;
-use Podio\PodioOAuth;
+use PodioOAuth;
 
 class PodioCacheSession
 {

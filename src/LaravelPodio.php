@@ -2,7 +2,7 @@
 
 namespace robjuz\LaravelPodio;
 
-use Podio\Podio;
+use Podio;
 use robjuz\LaravelPodio\Options\PodioOptions;
 use robjuz\LaravelPodio\Exceptions\ConfigurationException;
 
