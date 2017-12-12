@@ -1,10 +1,10 @@
 <?php
 
-namespace SpotOnLive\LaravelPodio;
+namespace robjuz\LaravelPodio;
 
 use Podio;
-use SpotOnLive\LaravelPodio\Options\PodioOptions;
-use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
+use robjuz\LaravelPodio\Options\PodioOptions;
+use robjuz\LaravelPodio\Exceptions\ConfigurationException;
 
 class LaravelPodio
 {
@@ -26,7 +26,15 @@ class LaravelPodio
     {
         $app = $this->getApp($appName);
 
-        Podio::authenticate_with_app($app['id'], $app['token']);
+        Podio::$auth_type = array(
+            "type"       => "app",
+            "identifier" => $app['id']
+        );
+        Podio::$oauth     = PodioCacheSession::get(Podio::$auth_type);
+        if ( ! Podio::is_authenticated()) {
+            Podio::authenticate_with_app($app['id'], $app['token']);
+        }
+
     }
 
     /**

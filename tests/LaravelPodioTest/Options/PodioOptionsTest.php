@@ -3,11 +3,11 @@
 namespace LaravelPodioTest\Options;
 
 use PHPUnit\Framework\TestCase;
-use SpotOnLive\LaravelPodio\Options\PodioOptions;
+use robjuz\LaravelPodio\Options\PodioOptions;
 
 class PodioOptionsTest extends TestCase
 {
-    /** @var \SpotOnLive\LaravelPodio\Options\PodioOptions */
+    /** @var \robjuz\LaravelPodio\Options\PodioOptions */
     protected $options;
 
     protected $defaults = [

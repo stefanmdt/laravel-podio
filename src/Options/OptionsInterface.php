@@ -1,6 +1,6 @@
 <?php
 
-namespace SpotOnLive\LaravelPodio\Options;
+namespace robjuz\LaravelPodio\Options;
 
 interface OptionsInterface
 {

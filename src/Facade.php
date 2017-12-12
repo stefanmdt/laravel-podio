@@ -1,4 +1,4 @@
-<?php namespace SpotOnLive\LaravelPodio;
+<?php namespace robjuz\LaravelPodio;
 
 
 class Facade extends \Illuminate\Support\Facades\Facade

@@ -3,7 +3,7 @@
 namespace LaravelPodioTest\Options;
 
 use PHPUnit\Framework\TestCase;
-use SpotOnLive\LaravelPodio\Options\Options;
+use robjuz\LaravelPodio\Options\Options;
 
 class OptionsTest extends TestCase
 {

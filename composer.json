@@ -1,12 +1,12 @@
 {
-  "name": "spotonlive/laravel-podio",
+  "name": "robjuz/laravel-podio",
   "type": "library",
   "description": "Podio integration for Laravel 5+",
   "keywords": [
     "podio",
     "laravel"
   ],
-  "homepage": "https://github.com/spotonlive/laravel-podio",
+  "homepage": "https://github.com/robjuz/laravel-podio",
   "license": "MIT",
   "authors": [
     {
@@ -17,32 +17,33 @@
   ],
   "require": {
     "php": ">=7.0.0",
-    "podio/podio-php": "~4.3.0"
+    "robjuz/podio-php": "~4.3.1"
   },
   "require-dev": {
     "phpunit/phpunit": "~6.0",
     "laravel/framework": "~5.4",
     "codeclimate/php-test-reporter": "~0.3.0",
-    "phpmd/phpmd" : "~2.3.2",
-    "squizlabs/php_codesniffer" : "~2.5.1",
+    "phpmd/phpmd": "~2.3.2",
+    "squizlabs/php_codesniffer": "~2.5.1",
     "mockery/mockery": "~1.0"
   },
   "autoload": {
     "psr-4": {
-      "SpotOnLive\\LaravelPodio\\": "src/SpotOnLive/LaravelPodio/"
-    },
-    "autoload-dev": {
-      "psr-4": {
-        "Tests\\": "tests/"
-      }
-    },"extra": {
-      "laravel": {
-        "providers": [
-          "SpotOnLive\\LaravelPodio\\LaraverPodioProvider"
-        ],
-        "aliases": {
-          "Podio": "SpotOnLive\\LaravelPodio\\Facade"
-        }
+      "robjuz\\LaravelPodio\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "robjuz\\LaravelPodio\\ServiceProvider"
+      ],
+      "aliases": {
+        "Podio": "robjuz\\LaravelPodio\\Facade"
       }
     }
   }

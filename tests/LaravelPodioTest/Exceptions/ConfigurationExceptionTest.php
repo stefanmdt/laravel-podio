@@ -3,7 +3,7 @@
 namespace LaravelPodioTest\Exceptions;
 
 use PHPUnit\Framework\TestCase;
-use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
+use robjuz\LaravelPodio\Exceptions\ConfigurationException;
 
 class ConfigurationExceptionTest extends TestCase
 {

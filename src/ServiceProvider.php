@@ -1,8 +1,8 @@
 <?php
-namespace SpotOnLive\LaravelPodio;
+namespace robjuz\LaravelPodio;
 
 use Illuminate\Foundation\Application;
-use SpotOnLive\LaravelPodio\Exceptions\ConfigurationException;
+use robjuz\LaravelPodio\Exceptions\ConfigurationException;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
@@ -13,7 +13,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('podio.php'),
+            __DIR__ . '/config/config.php' => config_path('podio.php'),
         ]);
     }
 
@@ -32,7 +32,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     private function mergeConfig()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/config.php',
+            __DIR__ . '/config/config.php',
             'podio'
         );
     }
