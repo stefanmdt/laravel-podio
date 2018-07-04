@@ -30,10 +30,10 @@ class PodioCacheSession
         $cache_key = "podio_cache_" . $auth_type['type'] . "_" . $auth_type['identifier'];
 
         // Check if we have a stored session
-        if (Cache::has($cache_key)) {
+        if (Cache::store('file')->has($cache_key)) {
 
             // We have a session, create new PodioOauth object and return it
-            $cached_value = Cache::get($cache_key);
+            $cached_value = Cache::store('file')->get($cache_key);
 
             return new PodioOAuth(
                 $cached_value['access_token'],
@@ -56,7 +56,7 @@ class PodioCacheSession
         $cache_key = "podio_cache_" . $auth_type['type'] . "_" . $auth_type['identifier'];
 
         // Save all properties of the oauth object in redis
-        Cache::forever($cache_key, [
+        Cache::store('file')->forever($cache_key, [
             'access_token'  => $oauth->access_token,
             'refresh_token' => $oauth->refresh_token,
             'expires_in'    => $oauth->expires_in,
