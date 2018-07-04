@@ -56,13 +56,15 @@ class PodioCacheSession
         $cache_key = "podio_cache_" . $auth_type['type'] . "_" . $auth_type['identifier'];
 
         // Save all properties of the oauth object in redis
-        Cache::store('file')->forever($cache_key, [
-            'access_token'  => $oauth->access_token,
-            'refresh_token' => $oauth->refresh_token,
-            'expires_in'    => $oauth->expires_in,
-            'ref_type'      => $oauth->ref["type"],
-            'ref_id'        => $oauth->ref["id"],
-        ]);
+        if (!empty($oauth->access_token) || !empty($oauth->refresh_token)) {
+            Cache::store('file')->forever($cache_key, [
+                'access_token' => $oauth->access_token,
+                'refresh_token' => $oauth->refresh_token,
+                'expires_in' => $oauth->expires_in,
+                'ref_type' => $oauth->ref["type"],
+                'ref_id' => $oauth->ref["id"],
+            ]);
+        }
 
     }
 }
