@@ -1,12 +1,12 @@
 <?php
 /**
  * Created by IntelliJ IDEA.
- * User: robjuz
+ * User: stefanmdt
  * Date: 02.08.17
  * Time: 07:43
  */
 
-namespace robjuz\LaravelPodio;
+namespace stefanmdt\LaravelPodio;
 
 
 use Illuminate\Support\Facades\Cache;
