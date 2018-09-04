@@ -70,6 +70,8 @@ class PodioCacheSession
                 'ref_type' => $oauth->ref["type"],
                 'ref_id' => $oauth->ref["id"],
             ]);
+        } else if (Cache::store('file')->has($cache_key)) {
+            Cache::store('file')->forget($cache_key);
         }
 
     }
