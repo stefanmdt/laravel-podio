@@ -57,6 +57,12 @@ class PodioCacheSession
 
         // Save all properties of the oauth object in redis
         if (!empty($oauth->access_token) || !empty($oauth->refresh_token)) {
+
+            // Existing entries must be explicitly removed
+            if (Cache::store('file')->has($cache_key)) {
+                Cache::store('file')->forget($cache_key);
+            }
+
             Cache::store('file')->forever($cache_key, [
                 'access_token' => $oauth->access_token,
                 'refresh_token' => $oauth->refresh_token,
