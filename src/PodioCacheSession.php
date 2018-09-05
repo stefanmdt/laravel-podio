@@ -55,21 +55,23 @@ class PodioCacheSession
     {
         $cache_key = "podio_cache_" . $auth_type['type'] . "_" . $auth_type['identifier'];
 
-        // Save all properties of the oauth object in redis
+        // Save all properties of the oauth object in cache
         if (!empty($oauth->access_token) || !empty($oauth->refresh_token)) {
 
-            // Existing entries must be explicitly removed
-            if (Cache::store('file')->has($cache_key)) {
-                Cache::store('file')->forget($cache_key);
+            $minutes = 480; // 8 hours (default value)
+            if (!empty($oauth->expires_in)) {
+                $minutes = $oauth->expires_in / 60;
             }
 
-            Cache::store('file')->forever($cache_key, [
+            Cache::store('file')->put($cache_key, [
                 'access_token' => $oauth->access_token,
                 'refresh_token' => $oauth->refresh_token,
                 'expires_in' => $oauth->expires_in,
                 'ref_type' => $oauth->ref["type"],
                 'ref_id' => $oauth->ref["id"],
-            ]);
+            ], $minutes);
+
+        // podio-php uses empty oauth objects to clear cache
         } else if (Cache::store('file')->has($cache_key)) {
             Cache::store('file')->forget($cache_key);
         }
