@@ -58,9 +58,9 @@ class PodioCacheSession
         // Save all properties of the oauth object in cache
         if (!empty($oauth->access_token) || !empty($oauth->refresh_token)) {
 
-            $minutes = 480; // 8 hours (default value)
+            $minutes = 28800; // 20 days (refresh token validity) (default value)
             if (!empty($oauth->expires_in)) {
-                $minutes = $oauth->expires_in / 60;
+                $minutes = $oauth->expires_in / 60 + 28800; // expiration time + 20 days (refresh token validity)
             }
 
             Cache::store('file')->put($cache_key, [
