@@ -17,7 +17,7 @@
   ],
   "require": {
     "php": ">=7.0.0",
-    "stefanmdt/podio-php": "dev-master"
+    "podio/podio-php": "^4.3"
   },
   "require-dev": {
     "phpunit/phpunit": "~6.0",
